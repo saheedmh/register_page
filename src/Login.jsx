@@ -58,23 +58,24 @@ const Login = () => {
     };
 */
    
-const handleSubmit= async (e) => {
+const handleLogin = async (e) => {
   e.preventDefault();
   try {
     const response = await Axios.post("/auth/login", { email, password }, { withCredentials: true });
 
-    // Check if the backend sent 'status: true'
-    if (response.data.status) {
-      console.log("Login Success!");
+    // 🔴 Common mistake: response.data is the WHOLE object. 
+    // You must check for .status specifically.
+    if (response.data.status === true) { 
+      console.log("Login Success! Navigating...");
       navigate('/dashboard');
     } else {
+      // If backend sends status: false or just a message
       alert(response.data.message || "Invalid credentials");
     }
   } catch (err) {
     console.error("Login failed", err);
   }
-};
-  return (
+};  return (
     <div className="d-flex flex-column justify-content-center align-items-center bg-secondary vh-100 vw-100">
       <div className="bg-white p-4 rounded w-25">
         <h2>Login</h2>
