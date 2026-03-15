@@ -38,18 +38,26 @@ const SignUp = () => {
           alert("Something went wrong.");
           console.log(res.data);
         }**/
+       Axios.defaults.baseURL = "https://mern-auth-1-kio3.onrender.com"
        const handleSubmit = async (e) => {
 
  e.preventDefault();
 
  try{
 
-   const response = await Axios.post(
-     "http://localhost:3000/auth/signup",
+   /**const response = await Axios.post(
+     //"http://localhost:3000/auth/signup",
+    // "https://onrender.com", // Just .com, no extra /
+
      { name, email, password },
      { withCredentials:true }
    );
-
+**/
+const response = await Axios.post(
+  "https://onrender.com", 
+  { name, email, password },
+  { withCredentials: true } // Keep this for secure cookies!
+);
    console.log("signup Response:", response.data);
 
    navigate('/Login');
