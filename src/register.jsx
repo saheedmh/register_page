@@ -38,14 +38,7 @@ const SignUp = () => {
           alert("Something went wrong.");
           console.log(res.data);
         }**/
-       Axios.defaults.baseURL = "https://mern-auth-1-kio3.onrender.com"
-       const handleSubmit = async (e) => {
-
- e.preventDefault();
-
- try{
-
-   /**const response = await Axios.post(
+       /**const response = await Axios.post(
      //"http://localhost:3000/auth/signup",
     // "https://onrender.com", // Just .com, no extra /
 
@@ -53,22 +46,35 @@ const SignUp = () => {
      { withCredentials:true }
    );
 **/
-const response = await Axios.post(
-  "https://onrender.com", 
-  { name, email, password },
-  { withCredentials: true } // Keep this for secure cookies!
-);
-   console.log("signup Response:", response.data);
+       // 1. Set the base URL ONCE (usually at the top of the file or in App.js)
+Axios.defaults.baseURL = "https://mern-auth-1-kio3.onrender.com";
 
-   navigate('/Login');
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
- } catch(err){
+  try {
+    // 2. Only use the ROUTE here. Axios will automatically combine it 
+    // with your baseURL to create: https://onrender.com
+    const response = await Axios.post(
+      "/auth/signup", 
+      { name, email, password },
+      { withCredentials: true } 
+    );
 
-   console.error("signup failed", err);
+    console.log("signup Response:", response.data);
 
- }
+    // 3. Navigate only if the backend returns a success status
+    if (response.data.status) {
+      navigate('/Login');
+    } else {
+      alert(response.data.message || "Registration failed");
+    }
 
+  } catch (err) {
+    console.error("signup failed", err);
+  }
 };
+
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center bg-secondary vh-100 vw-100">
