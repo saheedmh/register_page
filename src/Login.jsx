@@ -28,8 +28,7 @@ const Login = () => {
         alert("Login failed. Check console for details.");
       });
   };*/ 
-
-   const handleSubmit= async(e)=>{
+/** const handleSubmit= async(e)=>{
        e.preventDefault();
        try{
         const response = await
@@ -57,7 +56,24 @@ const Login = () => {
        }
          
     };
+*/
+   
+const handleSubmit= async (e) => {
+  e.preventDefault();
+  try {
+    const response = await Axios.post("/auth/login", { email, password }, { withCredentials: true });
 
+    // Check if the backend sent 'status: true'
+    if (response.data.status) {
+      console.log("Login Success!");
+      navigate('/dashboard');
+    } else {
+      alert(response.data.message || "Invalid credentials");
+    }
+  } catch (err) {
+    console.error("Login failed", err);
+  }
+};
   return (
     <div className="d-flex flex-column justify-content-center align-items-center bg-secondary vh-100 vw-100">
       <div className="bg-white p-4 rounded w-25">
