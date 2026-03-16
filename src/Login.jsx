@@ -61,7 +61,7 @@ const Login = () => {
 const handleSubmit= async (e) => {
   e.preventDefault();
   try {
-    const response = await Axios.post("auth/login", { email, password }, { withCredentials: true });
+    const response = await Axios.post("/auth/login", { email, password }, { withCredentials: true });
 
     // Check if the backend sent 'status: true'
     if (response.data.status===true) {
