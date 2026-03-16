@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
+Axios.defaults.baseURL = "https://mern-auth-1-kio3.onrender.com";
+Axios.defaults.withCredentials = true;
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("")
 
-  Axios.defaults.withCredentials = true;
-
+  
   const navigate = useNavigate();
 
  /** const handleSubmit = (e) => {
