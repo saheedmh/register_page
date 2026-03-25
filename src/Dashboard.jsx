@@ -1,8 +1,18 @@
+/** */
 import React from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 const Dashboard = () => {
+  axios.get("/auth/dashboard", { withCredentials: true }) // No headers needed!
+  .then((res) => {
+    if (res.data.status) {
+      setUser(res.data.user);
+      setLoading(false);
+    } else {
+      navigate("/login");
+    }
+  });
     /**const navigate = useNavigate();
     axios.defaults.withCredentials= true;
         useEffect(()=>{
@@ -16,7 +26,7 @@ const Dashboard = () => {
                 }
             })
         },[])
-        **/
+        
 const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -43,7 +53,7 @@ const [user, setUser] = useState(null);
   }, [navigate]);
 
   if (loading) return <p>Loading...</p>;
-
+**/
   return (
     <div>
       <h2>Welcome, {user.name} 👋</h2>
