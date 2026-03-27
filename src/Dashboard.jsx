@@ -4,15 +4,26 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 const Dashboard = () => {
-  axios.get("/auth/dashboard", { withCredentials: true }) // No headers needed!
-  .then((res) => {
-    if (res.data.status) {
-      setUser(res.data.user);
-      setLoading(false);
-    } else {
+  useEffect(() => {
+  // ✅ Keep it inside useEffect so it only runs ONCE when the page loads
+  axios
+    .get("https://onrender.com", {
+      withCredentials: true, // 👈 This is all you need now! No more headers.
+    })
+    .then((res) => {
+      if (res.data.status) {
+        setUser(res.data.user);
+        setLoading(false);
+      } else {
+        navigate("/login");
+      }
+    })
+    .catch((err) => {
+      console.error("❌ Auth failed:", err);
       navigate("/login");
-    }
-  });
+    });
+}, [navigate]);
+
     /**const navigate = useNavigate();
     axios.defaults.withCredentials= true;
         useEffect(()=>{
