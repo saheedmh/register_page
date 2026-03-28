@@ -7,7 +7,7 @@ import SignUp from './register'
 import Home from './Home'
 import Forgotpassword from './forgotpasword';
 import ResetPassword from './resetPassword'
-import Dashboard from './Dashboard'
+import Dashboards from './Dashboards'
 function App() {
   
 
@@ -22,7 +22,7 @@ function App() {
 <Route path='resetPassword/:token' element={<ResetPassword/>}/>
 
 <Route path='forgotpasword' element={<Forgotpassword/>}/>
-<Route path='Dashboard' element={<Dashboard/>}/>
+<Route path='Dashboards' element={<Dashboards/>}/>
 
 </Routes>
      
