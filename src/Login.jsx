@@ -67,7 +67,7 @@ const handleSubmit= async (e) => {
     // Check if the backend sent 'status: true'
     if (response.data.status===true) {
       console.log("Login Success!");
-      navigate('/dashboard');
+      navigate('/Dashboards');
     } else {
       alert(response.data.message || "Invalid credentials");
     }

@@ -22,11 +22,11 @@ const Dashboards = () => {
           setLoading(false);
         } else {
           // If backend says status is false (no cookie), go to login
-          navigate("/login");
+          navigate("/Login");
         }
       } catch (err) {
         console.error("❌ Authentication failed:", err);
-        navigate("/login");
+        navigate("/Login");
       }
     };
 
@@ -37,7 +37,7 @@ const Dashboards = () => {
     // 1. You should eventually create a backend route /auth/logout 
     // that runs: res.clearCookie('token')
     // 2. For now, we just redirect the user
-    navigate("/login");
+    navigate("/Login");
   };
 
   if (loading) return (
