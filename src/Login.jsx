@@ -81,7 +81,7 @@ return (
     overflow-hidden: Disables all scrolling (vertical and horizontal).
     p-3: Keeps a safe gap so the box doesn't touch the screen edges on small phones.
   */
-  <div className="d-flex flex-column justify-content-center align-items-center bg-secondary vh-100 vw-100 overflow-hidden p-3">
+  <div className="d-flex flex-column justify-content-center align-items-center bg-secondary vh-100 vw-100 overflow-hidden p-3 w-100">
     
     {/* 
       Using col-11 for tiny screens and maxWidth for larger ones.

@@ -76,70 +76,70 @@ const handleSubmit = async (e) => {
 };
 
 
-  return (
-    <div className="d-flex  justify-content-center align-items-center overflow-hidden bg-secondary vh-100 vw-100">
-      <div className="bg-white p-4 shadow w-100 mx-3 rounded w-25 " style={{ maxWidth: '300px' }}>
-        <h2 className="mb-3">Register</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label htmlFor="name">
-              <strong>Name</strong>
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Enter Name"
-              autoComplete="off"
-              className="form-control rounded-0"
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
+ return (
+  <div className="d-flex justify-content-center align-items-center bg-secondary vh-100 w-100">
+    <div
+      className="bg-white p-4 shadow w-100 mx-3 rounded"
+      style={{ maxWidth: '300px' }}
+    >
+      <h2 className="mb-3">Register</h2>
 
-          <div className="mb-3">
-            <label htmlFor="email">
-              <strong>Email</strong>
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter Email"
-              autoComplete="off"
-              className="form-control rounded-0"
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="name">
+            <strong>Name</strong>
+          </label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter Name"
+            className="form-control rounded-0"
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
 
-          <div className="mb-3">
-            <label htmlFor="password">
-              <strong>Password</strong>
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Enter Password"
-              autoComplete="off"
-              className="form-control rounded-0"
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
+        <div className="mb-3">
+          <label htmlFor="email">
+            <strong>Email</strong>
+          </label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter Email"
+            className="form-control rounded-0"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
 
-          <button type="submit" className="btn btn-secondary w-100 mb-3">
-             sign up
-          </button>
-        </form>
-        <p>Already have an account?</p>
-        <Link to="/Login" className="btn btn-secondary border w-100">
-          Login
-        </Link>
-      </div>
+        <div className="mb-3">
+          <label htmlFor="password">
+            <strong>Password</strong>
+          </label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            className="form-control rounded-0"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <button type="submit" className="btn btn-secondary w-100 mb-3">
+          Sign Up
+        </button>
+      </form>
+
+      <p>Already have an account?</p>
+
+      <Link to="/Login" className="btn btn-secondary border w-100">
+        Login
+      </Link>
     </div>
-  );
+  </div>
+);
 };
 
 export default SignUp;
