@@ -121,7 +121,7 @@ return (
       
         <div className="text-center">
           <p className="mb-1 small">Don't have an account?</p>
-          <Link to="/" className="btn btn-outline-secondary w-100 btn-sm">Sign Up</Link>
+          <Link to="/" className="btn btn-secondary w-100 btn-sm">Sign Up</Link>
         </div>
       </form>
 
