@@ -81,13 +81,13 @@ return (
     overflow-hidden: Disables all scrolling (vertical and horizontal).
     p-3: Keeps a safe gap so the box doesn't touch the screen edges on small phones.
   */
-  <div className="d-flex flex-column justify-content-center align-items-center bg-secondary vh-100 vw-100 overflow-hidden p-3 w-100">
+  <div className="d-flex justify-content-center align-items-center bg-secondary vh-100 w-100">
     
     {/* 
       Using col-11 for tiny screens and maxWidth for larger ones.
       This ensures the box stays centered and fits within the screen height.
     */}
-    <div className="bg-white p-4 rounded shadow-lg col-11 col-sm-8 col-md-6 col-lg-4" style={{ maxWidth: '380px' }}>
+    <div className="bg-white p-4 shadow w-100 mx-3 rounded " style={{ maxWidth: '380px' }}>
       <h2 className="text-center mb-4">Login</h2>
       
       <form onSubmit={handleSubmit}>
