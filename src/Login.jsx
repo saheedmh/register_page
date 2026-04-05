@@ -75,58 +75,63 @@ const handleSubmit= async (e) => {
     console.error("Login failed", err);
   }
 };
-  return (
-    /* vh-100 and vw-100 ensure the background covers the whole screen */
-  <div className="d-flex flex-column justify-content-center align-items-center bg-secondary vh-100 vw-100">
-      {/* 
-        w-100: Full width on mobile 
-        mx-3: Adds small gaps on the left/right of the phone screen
-        maxWidth: Prevents the box from getting too wide on a computer 
+return (
+  /* 
+    vh-100: Sets height to 100% of the viewport.
+    overflow-hidden: Disables all scrolling (vertical and horizontal).
+    p-3: Keeps a safe gap so the box doesn't touch the screen edges on small phones.
+  */
+  <div className="d-flex flex-column justify-content-center align-items-center bg-secondary vh-100 vw-100 overflow-hidden p-3">
+    
+    {/* 
+      Using col-11 for tiny screens and maxWidth for larger ones.
+      This ensures the box stays centered and fits within the screen height.
     */}
-    <div className="bg-white p-4 rounded shadow-lg w-100 mx-3" style={{ maxWidth: '400px' }}>
-      <h2 className="text-center mb-4">Login</h2>  <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label htmlFor="email"><strong>Email</strong></label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter Email"
-              autoComplete="off"
-              className="form-control rounded-0"
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="mb-3">
-            <label htmlFor="password"><strong>Password</strong></label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Enter Password"
-              autoComplete="off"
-              className="form-control rounded-0"
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-
-          <button type="submit" className="btn btn-secondary w-100 mb-3">Login</button>
-           <Link to="/forgotpassword" className="btn btn-light border w-60 mt-3">forgot password</Link>
+    <div className="bg-white p-4 rounded shadow-lg col-11 col-sm-8 col-md-6 col-lg-4" style={{ maxWidth: '380px' }}>
+      <h2 className="text-center mb-4">Login</h2>
       
-           <p>Don't have an account?</p>
-          
-        <Link to="/" className="btn btn-secondary border w-100">Sign Up</Link>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-2">
+          <label htmlFor="email"><strong>Email</strong></label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter Email"
+            className="form-control"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="password"><strong>Password</strong></label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            className="form-control"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <button type="submit" className="btn btn-secondary w-100 mb-2">Login</button>
+        
+        <Link to="/forgotpassword" style={{fontSize: '0.9rem'}} className="btn btn-light border w-100 mb-3">Forgot Password</Link>
       
-        </form>
-       {errorMessage&&
-       <p style={{color:"red"}}>{errorMessage}</p>
-       }
-       </div>
+        <div className="text-center">
+          <p className="mb-1 small">Don't have an account?</p>
+          <Link to="/" className="btn btn-outline-secondary w-100 btn-sm">Sign Up</Link>
+        </div>
+      </form>
+
+      {errorMessage && (
+        <p className="text-danger text-center mt-2 small mb-0">{errorMessage}</p>
+      )}
     </div>
-  );
+  </div>
+);
+
 };
 
 export default Login;
