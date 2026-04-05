@@ -76,10 +76,15 @@ const handleSubmit= async (e) => {
   }
 };
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center bg-secondary vh-100 vw-100">
-      <div className="bg-white p-4 rounded w-25">
-        <h2>Login</h2>
-        <form onSubmit={handleSubmit}>
+    /* vh-100 and vw-100 ensure the background covers the whole screen */
+  <div className="d-flex flex-column justify-content-center align-items-center bg-secondary vh-100 vw-100">
+      {/* 
+        w-100: Full width on mobile 
+        mx-3: Adds small gaps on the left/right of the phone screen
+        maxWidth: Prevents the box from getting too wide on a computer 
+    */}
+    <div className="bg-white p-4 rounded shadow-lg w-100 mx-3" style={{ maxWidth: '400px' }}>
+      <h2 className="text-center mb-4">Login</h2>  <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="email"><strong>Email</strong></label>
             <input
@@ -108,12 +113,12 @@ const handleSubmit= async (e) => {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary w-100 mb-3">Login</button>
+          <button type="submit" className="btn btn-secondary w-100 mb-3">Login</button>
            <Link to="/forgotpassword" className="btn btn-light border w-60 mt-3">forgot password</Link>
       
            <p>Don't have an account?</p>
           
-        <Link to="/register" className="btn btn-light border w-100">Sign Up</Link>
+        <Link to="/" className="btn btn-secondary border w-100">Sign Up</Link>
       
         </form>
        {errorMessage&&

@@ -77,8 +77,8 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center bg-secondary vh-100 vw-100">
-      <div className="bg-white p-4 mt-5 mb-3 rounded w-25 ">
+    <div className="d-flex  justify-content-center align-items-center bg-secondary vh-100 vw-100">
+      <div className="bg-white p-4 shadow w-100 mx-3 rounded w-25 " style={{ maxWidth: '400px' }}>
         <h2 className="mb-3">Register</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
@@ -134,7 +134,7 @@ const handleSubmit = async (e) => {
           </button>
         </form>
         <p>Already have an account?</p>
-        <Link to="/login" className="btn btn-light border w-100">
+        <Link to="/Login" className="btn btn-secondary border w-100">
           Login
         </Link>
       </div>
